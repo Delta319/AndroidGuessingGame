@@ -4,6 +4,8 @@
     <string name="start">Start</string>
     <string name="guess_a_number">Guess a Number</string>
     <string name="higher">Higher</string>
-    <string name="_1_100">1 - 100</string>
+    <string name="_1_100">1 – 100</string>
     <string name="submit_guess">Check Guess</string>
+    <string name="you_won">You Won!</string>
+    <string name="winning_number">The winning number was %1$d</string>
 </resources>
