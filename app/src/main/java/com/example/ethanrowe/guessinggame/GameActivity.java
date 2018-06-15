@@ -18,6 +18,7 @@ public class GameActivity extends AppCompatActivity {
     private int generatedNumber;
     private int numberOfGuesses = 0;
     private final int MAX_GUESS_COUNT = 4;
+    public static final String winningNumber = "WINNING_NUMBER";
 
 
     @Override
@@ -64,11 +65,38 @@ public class GameActivity extends AppCompatActivity {
     //This method will take the input and check it against the generatedNumber. Depending on the outcome it will change the view accordingly or take us to the ResultsActivity;
     private void checkGuess(int userGuess) {
 
+        if (userGuess == generatedNumber) {
+            //Goes to results Activity. User has guessed correctly
+            Intent winner = new Intent(this, ResultsActivity.class);
+            startActivity(winner);
 
-    }
+        } else if (numberOfGuesses == MAX_GUESS_COUNT) {
+            //Goes to ResultsActivity, user has ran out of chances
+            Intent loser = new Intent(this, ResultsActivity.class);
+            loser.putExtra(winningNumber, generatedNumber);
+            startActivity(loser);
+        } else if (userGuess < generatedNumber) {
+            //Update clue TextView to say "higher", set visibility to VISIBLE, set guess EditText to "" and increment numberOfGuesses by 1
+            clue.setText(R.string.higher);
+            clue.setVisibility(View.VISIBLE);
+            guess.setText("");
+            numberOfGuesses++;
 
-    @Override
-    public void onBackPressed() {
-        //Removed super.onBackPressed(); to make sure if the back button is presses nothing will happen.
+
+        } else if (userGuess > generatedNumber) {
+            // Update clue TextView to say "higher", set visibility to VISIBLE, set guess EditText to "" and increment numberOfGuesses by 1
+            clue.setText("lower");
+            clue.setVisibility(View.VISIBLE);
+            guess.setText("");
+            numberOfGuesses++;
+
+
+        }
+
+        @Override
+        public void onBackPressed (); {
+            //Removed super.onBackPressed(); to make sure if the back button is presses nothing will happen.
+        }
     }
 }
+
