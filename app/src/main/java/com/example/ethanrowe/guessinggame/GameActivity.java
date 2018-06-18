@@ -30,13 +30,22 @@ public class GameActivity extends AppCompatActivity {
         clue = findViewById(R.id.clue);
         guess = findViewById(R.id.guess_edittext);
 
-        //This generates a random number between 1 and 100.
-        generatedNumber = (int) Math.ceil(Math.random() * 100);
+
+
 
         //Toast.makeText(this, Integer.toString(generatedNumber), Toast.LENGTH_SHORT).show();
 
         setListener();
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //This generates a random number between 1 and 100.
+        generatedNumber = (int) Math.ceil(Math.random() * 100);
 
+        numberOfGuesses = 0;
+        clue.setVisibility(View.INVISIBLE);
+        guess.setText("");
     }
 
     private void setListener() {
@@ -48,7 +57,7 @@ public class GameActivity extends AppCompatActivity {
         });
     }
 
-    //This method is going to check if the user has put in a valid number/
+    //This method is going to check if the user has put in a valid number
     private void validateGuess() {
 
 

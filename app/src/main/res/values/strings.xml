@@ -12,4 +12,5 @@
     <string name="lower">lower</string>
     <string name="chances_left">You have %1$d chances left.</string>
     <string name="restart">Restart</string>
+    <string name="you_lost">You lost!</string>
 </resources>
