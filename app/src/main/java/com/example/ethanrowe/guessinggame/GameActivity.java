@@ -54,7 +54,7 @@ public class GameActivity extends AppCompatActivity {
 
         int userGuess = Integer.parseInt(guess.getText().toString());
         if (userGuess > 100 || userGuess <= 0) {
-            clue.setText("Please enter a number between 1 and 100.");
+            clue.setText(R.string.enter_number_1_100);
             clue.setVisibility(View.VISIBLE);
             guess.setText("");
         } else {
@@ -81,22 +81,23 @@ public class GameActivity extends AppCompatActivity {
             clue.setVisibility(View.VISIBLE);
             guess.setText("");
             numberOfGuesses++;
-
-
+            Toast.makeText(this, getString(R.string.chances_left, (5 - numberOfGuesses)), Toast.LENGTH_SHORT).show();
         } else if (userGuess > generatedNumber) {
-            // Update clue TextView to say "higher", set visibility to VISIBLE, set guess EditText to "" and increment numberOfGuesses by 1
-            clue.setText("lower");
+            //Update clue TextView to say "higher", set visibility to VISIBLE, set guess EditText to "" and increment numberOfGuesses by 1
+            clue.setText(R.string.lower);
             clue.setVisibility(View.VISIBLE);
             guess.setText("");
             numberOfGuesses++;
+            Toast.makeText(this, getString(R.string.chances_left, (5 - numberOfGuesses)), Toast.LENGTH_SHORT).show();
 
-
-        }
-
-        @Override
-        public void onBackPressed (); {
-            //Removed super.onBackPressed(); to make sure if the back button is presses nothing will happen.
         }
     }
+
+
+    @Override
+    public void onBackPressed() {
+        //Removed super.onBackPressed(); to make sure if the back button is presses nothing will happen.
+    }
 }
+
 

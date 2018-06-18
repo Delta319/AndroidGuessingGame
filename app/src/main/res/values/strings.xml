@@ -8,4 +8,8 @@
     <string name="submit_guess">Check Guess</string>
     <string name="you_won">You Won!</string>
     <string name="winning_number">The winning number was %1$d</string>
+    <string name="enter_number_1_100">Please enter a number between 1 and 100.</string>
+    <string name="lower">lower</string>
+    <string name="chances_left">You have %1$d chances left.</string>
+    <string name="restart">Restart</string>
 </resources>
